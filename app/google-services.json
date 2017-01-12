@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "836084628308",
+    "firebase_url": "https://capitaloneexpress-50671.firebaseio.com",
+    "project_id": "capitaloneexpress-50671",
+    "storage_bucket": "capitaloneexpress-50671.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:836084628308:android:a877a9a4c30418fd",
+        "android_client_info": {
+          "package_name": "com.example.michaelwang.capitaltogo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "836084628308-j2gnprt65rh869eq638vpjpfk6u1l1j4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.michaelwang.capitaltogo",
+            "certificate_hash": "B2A435A455BD299170F57955E3BF58DBFF240FC4"
+          }
+        },
+        {
+          "client_id": "836084628308-7rq52hklto5ttnb5rqrugcgb8nkg853s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBiVdKg2-nIPy8bgRqdPxD08UMm4njGo_w"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "836084628308-7rq52hklto5ttnb5rqrugcgb8nkg853s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
