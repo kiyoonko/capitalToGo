@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "836084628308-fdn9o429vjgjf1cfq5qk6dg4geeouq01.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.michaelwang.capitaltogo",
+            "certificate_hash": "9923B64DF5CEFB7B863FB6A1D8C8CF759E33438B"
+          }
+        },
+        {
           "client_id": "836084628308-j2gnprt65rh869eq638vpjpfk6u1l1j4.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

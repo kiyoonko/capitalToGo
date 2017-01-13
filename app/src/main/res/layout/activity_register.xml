@@ -13,7 +13,7 @@
 
     <ImageView
         android:id="@+id/ivLogo"
-        android:layout_marginLeft="27dp"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="64dp"
         android:src="@drawable/logo"
         android:layout_width="307dp"
@@ -23,18 +23,17 @@
         android:text="Please continue with your CapitalOne Credentials"
         android:textSize="14dp"
         android:gravity="center_horizontal"
-        android:id="@+id/tvPrompt"
+        android:id="@+id/credentials"
         android:layout_width="321dp"
         android:layout_height="21dp"
         android:layout_marginTop="57dp"
-        android:layout_marginLeft="20dp"
         android:layout_below="@id/ivLogo"/>
 
     <EditText
         android:layout_width="300dp"
         android:layout_height="36dp"
         android:layout_marginTop="22dp"
-        android:layout_marginLeft="30dp"
+        android:layout_centerHorizontal="true"
         android:background="@color/white"
         android:inputType="textEmailAddress"
         android:textColorHint="@color/grey"
@@ -42,7 +41,7 @@
         android:shadowDy="1"
         android:shadowRadius="2"
         android:textColor="@color/black"
-        android:layout_below="@id/tvPrompt"
+        android:layout_below="@id/credentials"
         android:id="@+id/etEmail"
         android:hint="Email" />
 
@@ -50,7 +49,7 @@
         android:layout_width="300dp"
         android:layout_height="36dp"
         android:layout_marginTop="12dp"
-        android:layout_marginLeft="30dp"
+        android:layout_centerHorizontal="true"
         android:background="@color/white"
         android:textColorHint="@color/grey"
         android:shadowColor="@color/grey"
@@ -65,9 +64,8 @@
     <ImageButton
         android:src="@drawable/bcontinue"
         android:background="@null"
-        android:text="Continue"
         android:layout_marginTop="38dp"
-        android:layout_marginLeft="66dp"
+        android:layout_centerHorizontal="true"
         android:layout_width="229dp"
         android:layout_height="50dp"
         android:layout_below="@+id/etPassword"
@@ -75,9 +73,8 @@
 
     <ImageButton
         android:src="@drawable/bcancel"
-        android:text="Cancel"
         android:layout_marginTop="10dp"
-        android:layout_marginLeft="66dp"
+        android:layout_centerHorizontal="true"
         android:layout_width="229dp"
         android:layout_height="50dp"
         android:background="@null"
