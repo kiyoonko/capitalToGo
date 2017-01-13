@@ -37,7 +37,7 @@ public class RegisterActivity extends AppCompatActivity {
         bContinue.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent nextIntent = new Intent(RegisterActivity.this, RegisterPrintActivity.class);
+                Intent nextIntent = new Intent(RegisterActivity.this, RegisterSuccessActivity.class);
                 RegisterActivity.this.startActivity(nextIntent);
             }
         });

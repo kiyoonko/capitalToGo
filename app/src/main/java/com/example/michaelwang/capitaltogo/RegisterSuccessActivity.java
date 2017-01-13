@@ -30,5 +30,6 @@ public class RegisterSuccessActivity extends AppCompatActivity {
         Typeface custom_font_condense = Typeface.createFromAsset(getAssets(),  "fonts/AvenirNextCondensed-DemiBold.ttf");
         Typeface custom_font = Typeface.createFromAsset(getAssets(),  "fonts/Avenir-Medium.ttf");
         success.setTypeface(custom_font_condense);
+        print.setTypeface(custom_font);
     }
 }

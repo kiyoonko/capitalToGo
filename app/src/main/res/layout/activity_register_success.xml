@@ -38,7 +38,7 @@
         android:layout_marginTop="22dp"
         android:layout_width="277dp"
         android:layout_height="68dp"
-        android:text="Now you can log-in with\nyour fingerprint!"
+        android:text="Please go log-in with your credentials"
         android:textSize="25dp"
         android:layout_below="@id/success"
         />
