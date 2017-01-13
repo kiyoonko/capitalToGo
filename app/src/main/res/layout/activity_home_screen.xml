@@ -50,8 +50,7 @@
                     android:layout_marginLeft="18dp"
                     android:layout_marginTop="6dp"
                     android:elevation="10dp"
-                    android:id="@+id/tvChecking"
-                    android:text="hi"/>
+                    android:id="@+id/tvChecking"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -60,8 +59,7 @@
                     android:layout_marginLeft="18dp"
                     android:elevation="10dp"
                     android:layout_below="@id/tvChecking"
-                    android:id="@+id/tvCheckingNum"
-                    android:text="hi"/>
+                    android:id="@+id/tvCheckingNum"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -72,7 +70,7 @@
                     android:elevation="10dp"
                     android:layout_below="@id/tvCheckingNum"
                     android:id="@+id/tvCheckingAmt"
-                    android:text="hi"/>
+                    />
             </RelativeLayout>
 
             <RelativeLayout
@@ -89,7 +87,7 @@
                     android:layout_marginTop="6dp"
                     android:elevation="10dp"
                     android:id="@+id/tvSavings"
-                    android:text="hi"/>
+                    />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -99,7 +97,7 @@
                     android:elevation="10dp"
                     android:layout_below="@id/tvSavings"
                     android:id="@+id/tvSavingsNum"
-                    android:text="hi"/>
+                    />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -110,7 +108,7 @@
                     android:elevation="10dp"
                     android:layout_below="@id/tvSavingsNum"
                     android:id="@+id/tvSavingsAmt"
-                    android:text="hi"/>
+                    />
             </RelativeLayout>
 
             <RelativeLayout
@@ -127,7 +125,7 @@
                     android:layout_marginTop="6dp"
                     android:elevation="10dp"
                     android:id="@+id/tvEmergency"
-                    android:text="hi"/>
+                    />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -137,7 +135,7 @@
                     android:elevation="10dp"
                     android:layout_below="@id/tvEmergency"
                     android:id="@+id/tvEmergencyNum"
-                    android:text="hi"/>
+                    />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -148,7 +146,7 @@
                     android:elevation="10dp"
                     android:layout_below="@id/tvEmergencyNum"
                     android:id="@+id/tvEmergencyAmt"
-                    android:text="hi"/>
+                    />
             </RelativeLayout>
         </RelativeLayout>
     </ScrollView>
