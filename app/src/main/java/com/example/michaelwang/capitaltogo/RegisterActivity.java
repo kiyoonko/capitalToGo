@@ -17,17 +17,26 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
 
         final ImageButton bCancel = (ImageButton) findViewById(R.id.bCancel);
+        final ImageButton bContinue = (ImageButton) findViewById(R.id.bContinue);
 
-        final TextView tvPrompt = (TextView) findViewById(R.id.tvPrompt);
+        final TextView credentials = (TextView) findViewById(R.id.credentials);
 
         Typeface custom_font = Typeface.createFromAsset(getAssets(),  "fonts/AvenirNextCondensed-Medium.ttf");
-        tvPrompt.setTypeface(custom_font);
+        credentials.setTypeface(custom_font);
 
         bCancel.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
                 Intent cancelIntent = new Intent(RegisterActivity.this, MainActivity.class);
                 RegisterActivity.this.startActivity(cancelIntent);
+            }
+        });
+
+        bContinue.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent nextIntent = new Intent(RegisterActivity.this, RegisterPrintActivity.class);
+                RegisterActivity.this.startActivity(nextIntent);
             }
         });
     }

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_register_print"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/background"
+    tools:context="com.example.michaelwang.capitaltogo.RegisterSuccessActivity">
+
+    <ImageView
+        android:id="@+id/ivLogo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="64dp"
+        android:src="@drawable/logo"
+        android:layout_width="307dp"
+        android:layout_height="111dp" />
+
+    <TextView
+        android:id="@+id/success"
+        android:layout_centerHorizontal="true"
+        android:gravity = "center_horizontal"
+        android:layout_marginTop="53dp"
+        android:layout_width="197dp"
+        android:layout_height="68dp"
+        android:text="Success!"
+        android:textSize="50dp"
+        android:layout_below="@id/ivLogo"
+        />
+
+    <TextView
+        android:id="@+id/print"
+        android:layout_centerHorizontal="true"
+        android:gravity = "center_horizontal"
+        android:layout_marginTop="22dp"
+        android:layout_width="277dp"
+        android:layout_height="68dp"
+        android:text="Now you can log-in with\nyour fingerprint!"
+        android:textSize="25dp"
+        android:layout_below="@id/success"
+        />
+    <ImageButton
+        android:id="@+id/bLogin"
+        android:layout_width="229dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="66dp"
+        android:src="@drawable/blogin"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/print"
+        />
+</RelativeLayout>
