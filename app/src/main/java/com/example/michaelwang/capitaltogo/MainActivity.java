@@ -1,5 +1,6 @@
 package com.example.michaelwang.capitaltogo;
 
+import android.app.DownloadManager;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.media.Image;
@@ -62,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
         bRoot.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent rootIntent = new Intent(MainActivity.this, HomeScreenActivity.class);
+                Intent rootIntent = new Intent(MainActivity.this, RequestCashActivity.class);
 
                 MainActivity.this.startActivity(rootIntent);
             }

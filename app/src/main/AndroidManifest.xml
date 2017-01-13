@@ -21,6 +21,9 @@
         <activity android:name=".HomeScreenActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".LoginActivity"></activity>
+        <activity android:name=".RequestCashActivity"></activity>
+        <activity android:name=".CodeActivity"></activity>
+        <activity android:name=".TransactionSuccessActivity"></activity>
     </application>
 
 </manifest>
