@@ -91,7 +91,7 @@ public class CodeActivity extends AppCompatActivity {
         //String email = FirebaseAuth.getInstance().getCurrentUser().getEmail();
         //final TextView tvHomeScreen = (TextView) findViewById(R.id.tvHomeScreen);
         final ImageView ivQRCode = (ImageView) findViewById(R.id.ivQRCode);
-		Button bHome = (Button) findViewById(R.id.bCancel);
+		Button bCancel = (Button) findViewById(R.id.bCancel);
         TextView ATM = (TextView) findViewById(R.id.ATM);
         TextView moneyText = (TextView) findViewById(R.id.moneyText);
 
@@ -133,7 +133,7 @@ public class CodeActivity extends AppCompatActivity {
         queue.add(jsObjRequest);
 
 
-        cancel.setOnClickListener(new View.OnClickListener(){
+        bCancel.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
                 Intent homeScreenIntent = new Intent(CodeActivity.this, HomeScreenActivity.class);
@@ -143,7 +143,7 @@ public class CodeActivity extends AppCompatActivity {
 
         final Typeface custom_font_medium = Typeface.createFromAsset(getAssets(),  "fonts/Avenir-Medium.ttf");
         final Typeface custom_font_bold = Typeface.createFromAsset(getAssets(),  "fonts/AvenirNextCondensed-DemiBold.ttf");
-        cancel.setTypeface(custom_font_bold);
+        bCancel.setTypeface(custom_font_bold);
         ATM.setTypeface(custom_font_medium);
         moneyText.setTypeface(custom_font_medium);
     }
