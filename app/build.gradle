@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 
 android {
+    useLibrary 'org.apache.http.legacy'
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
     defaultConfig {
@@ -17,10 +18,22 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES.txt'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/dependencies.txt'
+        exclude 'META-INF/LGPL2.1'
+    }
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
@@ -28,6 +41,21 @@ dependencies {
     compile 'com.google.firebase:firebase-auth:10.0.1'
     testCompile 'junit:junit:4.12'
     compile 'com.android.volley:volley:1.0.0'
+    /*compile files('src/main/lib/commons-codec-1.9.jar')
+    compile files('src/main/lib/commons-logging-1.2.jar')
+    compile files('src/main/lib/fluent-hc-4.5.2.jar')
+    compile files('src/main/lib/httpclient-4.5.2.jar')
+    compile files('src/main/lib/httpclient-cache-4.5.2.jar')
+    compile files('src/main/lib/httpclient-win-4.5.2.jar')
+    compile files('src/main/lib/httpcore-4.4.4.jar')
+    compile files('src/main/lib/httpmime-4.5.2.jar')
+    compile files('src/main/lib/jna-4.1.0.jar')
+    compile files('src/main/lib/jna-platform-4.1.0.jar')*/
+
+    compile group: 'org.apache.httpcomponents' , name: 'httpclient-android' , version: '4.3.5.1'
+    compile('org.apache.httpcomponents:httpmime:4.3.6') {
+        exclude module: 'httpclient'
+    }
 }
 
 
