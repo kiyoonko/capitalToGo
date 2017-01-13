@@ -33,7 +33,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="160dp"
+        android:layout_height="180dp"
         android:background="@drawable/cbg4"
         android:id="@+id/checking">
         <TextView
@@ -67,7 +67,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="160dp"
+        android:layout_height="180dp"
         android:background="@drawable/cbg9"
         android:id="@+id/savings">
         <TextView
@@ -101,7 +101,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="160dp"
+        android:layout_height="180dp"
         android:background="@drawable/cbg5"
         android:id="@+id/emergency">
         <TextView
