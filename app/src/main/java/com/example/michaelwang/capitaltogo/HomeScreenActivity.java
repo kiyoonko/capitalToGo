@@ -39,53 +39,6 @@ public class HomeScreenActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home_screen);
 
 
-        RequestQueue queue = Volley.newRequestQueue(HomeScreenActivity.this);
-        String url = "http://api.reimaginebanking.com/customers/58788eb81756fc834d8eb492/accounts?key=80ad40cebb5f5f11cf1cc45d39a1eb1e";
-
-        JsonArrayRequest jsObjRequest = new JsonArrayRequest
-                (Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
-
-                    @Override
-                    public void onResponse(JSONArray response) {
-                        String checkingAcctName;
-                        String checkingAcctAmt;
-                        String savingsAcctName;
-                        String savingsAcctAmt;
-                        String emergencyAcctName;
-                        String emergencyAcctAmt;
-                        try {
-                            checkingAcctName = response.getJSONObject(0).getString("nickname");
-                            checkingAcctAmt = response.getJSONObject(0).getString("balance");
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                        try {
-                            savingsAcctName = response.getJSONObject(1).getString("nickname");
-                            savingsAcctAmt = response.getJSONObject(0).getString("balance");
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                        try {
-                            emergencyAcctName = response.getJSONObject(2).getString("nickname");
-                            emergencyAcctAmt = response.getJSONObject(2).getString("balance");
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                        Log.d("HomeScreenActivity", response.toString());
-
-                        
-                    }
-                }, new Response.ErrorListener() {
-
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        // TODO Auto-generated method stub
-
-                    }
-                });
-        queue.add(jsObjRequest);
-
-
         final Typeface custom_font_medium = Typeface.createFromAsset(getAssets(),  "fonts/Avenir-Medium.ttf");
         final TextView choose = (TextView) findViewById(R.id.choose);
         final RelativeLayout checking = (RelativeLayout) findViewById(R.id.checking);
@@ -111,6 +64,68 @@ public class HomeScreenActivity extends AppCompatActivity {
         emergencyName.setTypeface(custom_font_medium);
         emergencyNum.setTypeface(custom_font_medium);
         emergencyAmt.setTypeface(custom_font_medium);
+
+        RequestQueue queue = Volley.newRequestQueue(HomeScreenActivity.this);
+        String url = "http://api.reimaginebanking.com/customers/58788eb81756fc834d8eb492/accounts?key=[SECRET]";
+
+        JsonArrayRequest jsObjRequest = new JsonArrayRequest
+                (Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
+
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        String checkingAcctName = "";
+                        String checkingAcctNum = "";
+                        String checkingAcctAmt = "";
+                        String savingsAcctName = "";
+                        String savingsAcctNum = "";
+                        String savingsAcctAmt = "";
+                        String emergencyAcctName = "";
+                        String emergencyAcctNum = "";
+                        String emergencyAcctAmt = "";
+                        try {
+                            checkingAcctName = response.getJSONObject(0).getString("nickname");
+                            checkingAcctAmt = response.getJSONObject(0).getString("balance");
+                            checkingAcctNum = response.getJSONObject(0).getString("account_number");
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                        try {
+                            savingsAcctName = response.getJSONObject(1).getString("nickname");
+                            savingsAcctAmt = response.getJSONObject(1).getString("balance");
+                            savingsAcctNum = response.getJSONObject(1).getString("account_number");
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                        try {
+                            emergencyAcctName = response.getJSONObject(2).getString("nickname");
+                            emergencyAcctAmt = response.getJSONObject(2).getString("balance");
+                            emergencyAcctNum = response.getJSONObject(2).getString("account_number");
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                        Log.d("HomeScreenActivity", response.toString());
+                        checkingAmt.setText(checkingAcctAmt);
+                        checkingName.setText(checkingAcctName);
+                        checkingNum.setText(checkingAcctNum);
+
+                        savingsAmt.setText(savingsAcctAmt);
+                        savingsName.setText(savingsAcctName);
+                        savingsNum.setText(savingsAcctNum);
+
+                        emergencyAmt.setText(emergencyAcctAmt);
+                        emergencyName.setText(emergencyAcctName);
+                        emergencyNum.setText(emergencyAcctNum);
+                    }
+                }, new Response.ErrorListener() {
+
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        // TODO Auto-generated method stub
+
+                    }
+                });
+        queue.add(jsObjRequest);
+
 
         //get all name acc numbers and balances
         checking.setOnClickListener(new View.OnClickListener() {
