@@ -34,7 +34,6 @@ public class MainActivity extends AppCompatActivity {
 
         ImageButton bLogin = (ImageButton) findViewById(R.id.bLogin);
         ImageButton bRegister = (ImageButton) findViewById(R.id.bRegister);
-        Button bRoot = (Button) findViewById(R.id.bRoot);
         final TextView tvSlogan = (TextView) findViewById(R.id.tvSlogan);
 
         Typeface custom_font = Typeface.createFromAsset(getAssets(),  "fonts/Avenir-Book.ttf");
@@ -60,13 +59,5 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        bRoot.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                Intent rootIntent = new Intent(MainActivity.this, RequestCashActivity.class);
-
-                MainActivity.this.startActivity(rootIntent);
-            }
-        });
     }
 }
