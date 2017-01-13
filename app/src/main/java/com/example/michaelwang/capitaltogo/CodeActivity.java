@@ -137,8 +137,6 @@ public class CodeActivity extends AppCompatActivity {
         bCancel.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                //change this later
-                //Intent homeScreenIntent = new Intent(CodeActivity.this, HomeScreenActivity.class);
                 Intent homeScreenIntent = new Intent(CodeActivity.this, TransactionSuccessActivity.class);
                 CodeActivity.this.startActivity(homeScreenIntent);
             }

@@ -26,10 +26,9 @@
         android:gravity="center_horizontal"
         android:text="Thank you for using Capital2Go!"
         android:textSize="35dp"
+        android:textColor="@color/white"
         android:layout_below="@id/my_toolbar"
         android:id="@+id/thank"/>
-
-
 
     <TextView
         android:layout_width="280dp"
@@ -39,6 +38,7 @@
         android:gravity="center_horizontal"
         android:textSize="30dp"
         android:layout_marginTop="30dp"
+        android:textColor="@color/white"
         android:text="Your new balance is:"
         android:id="@+id/account"/>
     
@@ -49,6 +49,7 @@
         android:layout_centerHorizontal="true"
         android:gravity="center_horizontal"
         android:id="@+id/balance"
+        android:textColor="@color/white"
         android:textSize="70dp"
         />
     
