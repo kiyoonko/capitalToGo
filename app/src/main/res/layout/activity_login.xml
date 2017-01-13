@@ -56,7 +56,8 @@
         android:textColor="@color/black"
         android:layout_below="@id/block"
         android:id="@+id/etEmail"
-        android:hint="Email" />
+        android:hint="Email"
+        android:text="jared.alexander@capitalone.com"/>
 
     <EditText
         android:layout_width="300dp"
@@ -70,7 +71,8 @@
         android:inputType="textPassword"
         android:layout_below="@+id/etEmail"
         android:id="@+id/etPassword"
-        android:hint="Password" />
+        android:hint="Password"
+        android:text="basedbori"/>
 
 
     <ImageButton

@@ -58,6 +58,7 @@
         android:layout_marginTop="31dp"
         android:layout_below="@id/balance"
         android:layout_centerHorizontal="true"
+        android:background="@null"
         android:gravity="center_horizontal"
         android:src="@drawable/baccount"
         android:id="@+id/bAccount"
