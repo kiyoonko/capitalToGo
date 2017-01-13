@@ -24,4 +24,13 @@
         android:layout_alignParentEnd="true"
         android:layout_toEndOf="@+id/ivQRCode" />
 
+    <Button
+        android:text="Get Code"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/bHomeScreen"
+        android:id="@+id/bGetCode"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/ivQRCode" />
+
 </RelativeLayout>
