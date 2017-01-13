@@ -2,6 +2,7 @@ package com.example.michaelwang.capitaltogo;
 
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -15,6 +16,7 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+
 
         final ImageButton bCancel = (ImageButton) findViewById(R.id.bCancel);
         final ImageButton bContinue = (ImageButton) findViewById(R.id.bContinue);

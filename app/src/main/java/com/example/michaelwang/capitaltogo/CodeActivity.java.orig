@@ -91,10 +91,14 @@ public class CodeActivity extends AppCompatActivity {
         //String email = FirebaseAuth.getInstance().getCurrentUser().getEmail();
         //final TextView tvHomeScreen = (TextView) findViewById(R.id.tvHomeScreen);
         final ImageView ivQRCode = (ImageView) findViewById(R.id.ivQRCode);
-		Button bHome = (Button) findViewById(R.id.bCancel);
+<<<<<<< HEAD
+        Button bGetCode = (Button) findViewById(R.id.bGetCode);
+        Button cancel = (Button) findViewById(R.id.bCancel);
         TextView ATM = (TextView) findViewById(R.id.ATM);
         TextView moneyText = (TextView) findViewById(R.id.moneyText);
-
+=======
+        Button bHome = (Button) findViewById(R.id.bHome);
+>>>>>>> 6c1899a5ea30ba239bb7e3bc2dd6435aa23da506
 
         // Instantiate the RequestQueue.
         RequestQueue queue = Volley.newRequestQueue(CodeActivity.this);
