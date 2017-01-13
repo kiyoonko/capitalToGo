@@ -39,7 +39,7 @@
         android:gravity="center_horizontal"
         android:textSize="30dp"
         android:layout_marginTop="30dp"
-        android:text="Your Checking Account balance is:"
+        android:text="Your new balance is:"
         android:id="@+id/account"/>
     
     <TextView
