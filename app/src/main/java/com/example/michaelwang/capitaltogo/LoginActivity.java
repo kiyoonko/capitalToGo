@@ -5,6 +5,7 @@ import android.graphics.Typeface;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -31,6 +32,9 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        setSupportActionBar(myToolbar);
+        getSupportActionBar().setTitle(null);
 
         mAuth = FirebaseAuth.getInstance();
         mAuthListener = new FirebaseAuth.AuthStateListener() {
@@ -53,6 +57,13 @@ public class LoginActivity extends AppCompatActivity {
         final EditText etEmail = (EditText) findViewById(R.id.etEmail);
         final EditText etPassword = (EditText) findViewById(R.id.etPassword);
 
+        Typeface custom_font_medium = Typeface.createFromAsset(getAssets(),  "fonts/Avenir-Medium.ttf");
+        Typeface custom_font = Typeface.createFromAsset(getAssets(),  "fonts/Avenir-Book.ttf");
+
+        final TextView welcome = (TextView) findViewById(R.id.welcome);
+        final TextView block = (TextView) findViewById(R.id.block);
+        welcome.setTypeface(custom_font_medium);
+        block.setTypeface(custom_font);
 
         bLogin.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -90,8 +101,9 @@ public class LoginActivity extends AppCompatActivity {
         bCancel.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent cancelIntent = new Intent(LoginActivity.this, MainActivity.class);
-
+                //make sure to change this back
+                //Intent cancelIntent = new Intent(LoginActivity.this, MainActivity.class);
+                Intent cancelIntent = new Intent(LoginActivity.this, RequestCashActivity.class);
                 LoginActivity.this.startActivity(cancelIntent);
             }
         });

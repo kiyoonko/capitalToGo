@@ -1,8 +1,15 @@
 package com.example.michaelwang.capitaltogo;
 
 import android.content.Intent;
+<<<<<<< HEAD
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextUtils;
+import android.text.TextWatcher;
+=======
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -15,11 +22,9 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextUtils;
-import android.text.TextWatcher;
 import android.util.Base64;
 import android.util.Log;
+>>>>>>> 6c1899a5ea30ba239bb7e3bc2dd6435aa23da506
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -96,7 +101,7 @@ public class RequestCashActivity extends AppCompatActivity {
         final Button bSubmit = (Button) findViewById(R.id.bSubmit);
         final ImageButton bTalk = (ImageButton) findViewById(R.id.bTalk);
 
-		tvAmount.setTypeface(medium);
+        tvAmount.setTypeface(medium);
         tvDollarSign.setTypeface(medium);
         etAmount.setTypeface(medium);
         bOne.setTypeface(condensed);
@@ -105,6 +110,7 @@ public class RequestCashActivity extends AppCompatActivity {
         bTwenty.setTypeface(condensed);
         bFifty.setTypeface(condensed);
         bHundred.setTypeface(condensed);
+
 
         bOne.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -190,6 +196,43 @@ public class RequestCashActivity extends AppCompatActivity {
             }
         });
 
+        etAmount.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if(TextUtils.isEmpty(etAmount.getText().toString())){
+                    bSubmit.setText("Get $0");
+                }
+                else {
+                    bSubmit.setText("Get $"+etAmount.getText().toString());
+                }
+
+                if(TextUtils.isEmpty(etAmount.getText().toString())){
+                    bSubmit.setBackgroundColor(Color.parseColor("#A1A1A1"));
+                    bSubmit.setTextColor(Color.parseColor("#D1C9C9"));
+                }
+                else if(Integer.parseInt(etAmount.getText().toString())>0){
+                    bSubmit.setBackgroundColor(Color.parseColor("#509FF7"));
+                    bSubmit.setTextColor(Color.parseColor("#FFFFFF"));
+                }
+                else{
+                    bSubmit.setBackgroundColor(Color.parseColor("#A1A1A1"));
+                    bSubmit.setTextColor(Color.parseColor("#D1C9C9"));
+                }
+            }
+        });
+
+<<<<<<< HEAD
+=======
         bTalk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -231,41 +274,7 @@ public class RequestCashActivity extends AppCompatActivity {
                 }
             }
         });
-    	etAmount.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                if(TextUtils.isEmpty(etAmount.getText().toString())){
-                    bSubmit.setText("Get $0");
-                }
-                else {
-                    bSubmit.setText("Get $"+etAmount.getText().toString());
-                }
-
-                if(TextUtils.isEmpty(etAmount.getText().toString())){
-                    bSubmit.setBackgroundColor(Color.parseColor("#A1A1A1"));
-                    bSubmit.setTextColor(Color.parseColor("#D1C9C9"));
-                }
-                else if(Integer.parseInt(etAmount.getText().toString())>0){
-                    bSubmit.setBackgroundColor(Color.parseColor("#509FF7"));
-                    bSubmit.setTextColor(Color.parseColor("#FFFFFF"));
-                }
-                else{
-                    bSubmit.setBackgroundColor(Color.parseColor("#A1A1A1"));
-                    bSubmit.setTextColor(Color.parseColor("#D1C9C9"));
-                }
-            }
-        });
-
+>>>>>>> 6c1899a5ea30ba239bb7e3bc2dd6435aa23da506
     }
 
 

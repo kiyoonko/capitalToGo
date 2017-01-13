@@ -7,4 +7,9 @@
     <color name="white">#ffffff</color>
     <color name="black">#000000</color>
     <color name="grey">#4A4A4A</color>
+    <color name="disableText">#D1C9C9</color>
+    <color name="disableButton">#A1A1A1</color>
+    <color name="activeButton">#509FF7</color>
+    <color name="activeText">#FFFFFF</color>
+    <color name="cancel">#F00B2E</color>
 </resources>
