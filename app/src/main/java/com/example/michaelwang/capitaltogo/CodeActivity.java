@@ -102,8 +102,8 @@ public class CodeActivity extends AppCompatActivity {
         String url = "http://c2go-api-dev.us-east-1.elasticbeanstalk.com/api/qr";
 
         HashMap<String, String> postMessage = new HashMap<String, String>();
-        postMessage.put("aid", "5877db6c1756fc834d8e9346");
-        postMessage.put("amount", amount);
+        postMessage.put("aid", getIntent().getExtras().getString("aid"));
+        postMessage.put("amount", getIntent().getExtras().getString("amount"));
 
         JSONObject jsonBody = new JSONObject(postMessage);
 

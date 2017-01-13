@@ -76,6 +76,7 @@ public class RequestCashActivity extends AppCompatActivity {
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
 
+
         ActivityCompat.requestPermissions(this, permissions, REQUEST_RECORD_AUDIO_PERMISSION);
 
         super.onCreate(savedInstanceState);
@@ -185,6 +186,7 @@ public class RequestCashActivity extends AppCompatActivity {
                 if(!bSubmit.getText().toString().equals("Get $0")) {
                     Intent submitIntent = new Intent(RequestCashActivity.this, CodeActivity.class);
                     submitIntent.putExtra("amount", etAmount.getText().toString());
+                    submitIntent.putExtra("aid", getIntent().getExtras().getString("aid"));
                     RequestCashActivity.this.startActivity(submitIntent);
                 }
             }
@@ -223,6 +225,7 @@ public class RequestCashActivity extends AppCompatActivity {
                         String amount = data.getString("amount");
                         Log.d("HomeScreenActivity.java", amount);
                         Intent submitIntent = new Intent(RequestCashActivity.this, CodeActivity.class);
+                        submitIntent.putExtra("aid", getIntent().getExtras().getString("aid"));
                         submitIntent.putExtra("amount", amount);
                         RequestCashActivity.this.startActivity(submitIntent);
                     } catch (IOException | JSONException e) {
