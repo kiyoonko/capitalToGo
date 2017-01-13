@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -52,8 +53,8 @@ public class LoginActivity extends AppCompatActivity {
             }
         };
 
-        final Button bLogin = (Button) findViewById(R.id.bLogin);
-        final Button bCancel = (Button) findViewById(R.id.bCancel);
+        final ImageButton bLogin = (ImageButton) findViewById(R.id.bLogin);
+        final ImageButton bCancel = (ImageButton) findViewById(R.id.bCancel);
         final EditText etEmail = (EditText) findViewById(R.id.etEmail);
         final EditText etPassword = (EditText) findViewById(R.id.etPassword);
 
@@ -62,6 +63,8 @@ public class LoginActivity extends AppCompatActivity {
 
         final TextView welcome = (TextView) findViewById(R.id.welcome);
         final TextView block = (TextView) findViewById(R.id.block);
+        etEmail.setTypeface(custom_font);
+        etPassword.setTypeface(custom_font);
         welcome.setTypeface(custom_font_medium);
         block.setTypeface(custom_font);
 
@@ -103,7 +106,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v){
                 //make sure to change this back
                 //Intent cancelIntent = new Intent(LoginActivity.this, MainActivity.class);
-                Intent cancelIntent = new Intent(LoginActivity.this, RequestCashActivity.class);
+                Intent cancelIntent = new Intent(LoginActivity.this, MainActivity.class);
                 LoginActivity.this.startActivity(cancelIntent);
             }
         });

@@ -28,7 +28,9 @@
         android:textSize="35dp"
         android:layout_below="@id/my_toolbar"
         android:id="@+id/thank"/>
-    
+
+
+
     <TextView
         android:layout_width="280dp"
         android:layout_height="82dp"

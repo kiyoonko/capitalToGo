@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    android:background="@drawable/fadeback"
+    android:background="@drawable/background"
     tools:context="com.example.michaelwang.capitaltogo.LoginActivity">
 
 
@@ -31,7 +31,6 @@
         android:layout_below="@id/my_toolbar"
         android:id="@+id/welcome"
         android:gravity="center_horizontal"
-        android:textColor="@color/black"
         android:layout_centerHorizontal="true"/>
 
     <TextView
@@ -43,7 +42,6 @@
         android:layout_below="@id/welcome"
         android:id="@+id/block"
         android:gravity="center_horizontal"
-        android:textColor="@color/black"
         android:layout_centerHorizontal="true"/>
 
     <EditText
@@ -54,9 +52,7 @@
         android:background="@color/white"
         android:inputType="textEmailAddress"
         android:textColorHint="@color/grey"
-        android:shadowColor="@color/grey"
-        android:shadowDy="1"
-        android:shadowRadius="2"
+        android:elevation="10dp"
         android:textColor="@color/black"
         android:layout_below="@id/block"
         android:id="@+id/etEmail"
@@ -69,30 +65,31 @@
         android:layout_centerHorizontal="true"
         android:background="@color/white"
         android:textColorHint="@color/grey"
-        android:shadowColor="@color/grey"
-        android:shadowDy="1"
-        android:shadowRadius="2"
+        android:elevation="10dp"
         android:textColor="@color/black"
         android:inputType="textPassword"
         android:layout_below="@+id/etEmail"
         android:id="@+id/etPassword"
         android:hint="Password" />
 
-    <Button
-        android:text="Login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/etPassword"
-        android:gravity="center_horizontal"
+
+    <ImageButton
+        android:src="@drawable/blogin"
+        android:background="@null"
+        android:layout_marginTop="38dp"
         android:layout_centerHorizontal="true"
+        android:layout_width="229dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/etPassword"
         android:id="@+id/bLogin" />
 
-    <Button
-        android:text="Cancel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+    <ImageButton
+        android:src="@drawable/bcancel"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:layout_width="229dp"
+        android:layout_height="50dp"
+        android:background="@null"
         android:id="@+id/bCancel"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_below="@id/bLogin" />
 </RelativeLayout>
