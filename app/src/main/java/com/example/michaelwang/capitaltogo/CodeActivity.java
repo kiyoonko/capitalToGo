@@ -93,7 +93,8 @@ public class CodeActivity extends AppCompatActivity {
         final ImageView ivQRCode = (ImageView) findViewById(R.id.ivQRCode);
 		Button bCancel = (Button) findViewById(R.id.bCancel);
         TextView ATM = (TextView) findViewById(R.id.ATM);
-        TextView moneyText = (TextView) findViewById(R.id.moneyText);
+        final TextView moneyText = (TextView)findViewById(R.id.moneyText);
+        moneyText.setText("Your $"+amount+" is ready for pick-up");
 
 
         // Instantiate the RequestQueue.
@@ -136,7 +137,9 @@ public class CodeActivity extends AppCompatActivity {
         bCancel.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent homeScreenIntent = new Intent(CodeActivity.this, HomeScreenActivity.class);
+                //change this later
+                //Intent homeScreenIntent = new Intent(CodeActivity.this, HomeScreenActivity.class);
+                Intent homeScreenIntent = new Intent(CodeActivity.this, TransactionSuccessActivity.class);
                 CodeActivity.this.startActivity(homeScreenIntent);
             }
         });
