@@ -88,21 +88,12 @@ public class CodeActivity extends AppCompatActivity {
                 String url = "http://c2go-api-dev.us-east-1.elasticbeanstalk.com/api/qr";
 
 
-                File stupidWorkaround = null;
-                try {
-                    stupidWorkaround = new File("sdcard/Download/testUID1.txt");
-                    FileWriter fileWriter = new FileWriter(stupidWorkaround);
-                    fileWriter.write("5877db6c1756fc834d8e9346");
-                    fileWriter.flush();
-                    fileWriter.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                //.addBinaryBody("recording", new File("sdcard/Download/test1.wav"))
 
                 // i'll fix the Flask API later so I can just do addTextBody(key, value)
                 HttpEntity entity = MultipartEntityBuilder.create()
-                        .addBinaryBody("uid", stupidWorkaround)
-                        .addBinaryBody("recording", new File("sdcard/Download/test1.wav"))
+                        .addTextBody("uid", "5877db6c1756fc834d8e9346")
+                        .addTextBody("amount", "45") // 45 needs to be passed from the recording screen
                         .build();
 
                 HttpPost request = new HttpPost(url);
@@ -121,34 +112,6 @@ public class CodeActivity extends AppCompatActivity {
                 } catch (IOException|JSONException e) {
                     e.printStackTrace();
                 }
-
-                /*
-                JsonRequest jsObjRequest = new JsonObjectRequest
-                        (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
-
-                            @Override
-                            public void onResponse(JSONObject response) {
-                                String base64code = null;
-                                try {
-                                    base64code = response.getString("QR");
-                                } catch (JSONException e) {
-                                    e.printStackTrace();
-                                }
-                                Log.d("HomeScreenActivity.java", base64code);
-                                byte[] decodedString = Base64.decode(base64code, Base64.NO_PADDING);
-                                Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
-                                ivQRCode.setImageBitmap(decodedByte);
-                            }
-                        }, new Response.ErrorListener() {
-
-                            @Override
-                            public void onErrorResponse(VolleyError error) {
-                                Log.d("HomeActivity", "Error on response");
-                            }
-                        });
-
-                queue.add(jsObjRequest);
-                */
             }
         });
     }

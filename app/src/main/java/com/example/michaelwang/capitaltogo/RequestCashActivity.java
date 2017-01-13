@@ -27,6 +27,43 @@ public class RequestCashActivity extends AppCompatActivity {
         final Button bSubmit = (Button) findViewById(R.id.bSubmit);
         final Button bTalk = (Button) findViewById(R.id.bTalk);
 
+        bOne.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                etAmount.setText("" + (Integer.parseInt(etAmount.getText().toString()) + 1));
+            }
+        });
+        bFive.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                etAmount.setText("" + (Integer.parseInt(etAmount.getText().toString()) + 5));
+            }
+        });
+        bTen.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                etAmount.setText("" + (Integer.parseInt(etAmount.getText().toString()) + 10));
+            }
+        });
+        bTwenty.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                etAmount.setText("" + (Integer.parseInt(etAmount.getText().toString()) + 20));
+            }
+        });
+        bFifty.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                etAmount.setText("" + (Integer.parseInt(etAmount.getText().toString()) + 50));
+            }
+        });
+        bHundred.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                etAmount.setText("" + (Integer.parseInt(etAmount.getText().toString()) + 100));
+            }
+        });
+
         bSubmit.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
