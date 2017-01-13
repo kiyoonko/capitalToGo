@@ -90,51 +90,44 @@ public class CodeActivity extends AppCompatActivity {
         //String email = FirebaseAuth.getInstance().getCurrentUser().getEmail();
         //final TextView tvHomeScreen = (TextView) findViewById(R.id.tvHomeScreen);
         final ImageView ivQRCode = (ImageView) findViewById(R.id.ivQRCode);
-        Button bGetCode = (Button) findViewById(R.id.bGetCode);
         Button bHome = (Button) findViewById(R.id.bHome);
 
-        bGetCode.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                Bundle extras = getIntent().getExtras();
+        // Instantiate the RequestQueue.
+        RequestQueue queue = Volley.newRequestQueue(CodeActivity.this);
+        String url = "http://c2go-api-dev.us-east-1.elasticbeanstalk.com/api/qr";
 
-                // Instantiate the RequestQueue.
-                RequestQueue queue = Volley.newRequestQueue(CodeActivity.this);
-                String url = "http://c2go-api-dev.us-east-1.elasticbeanstalk.com/api/qr";
+        HashMap<String, String> postMessage = new HashMap<String, String>();
+        postMessage.put("aid", "5877db6c1756fc834d8e9346");
+        postMessage.put("amount", amount);
 
-                HashMap<String, String> postMessage = new HashMap<String, String>();
-                postMessage.put("aid", "5877db6c1756fc834d8e9346");
-                postMessage.put("amount", amount);
+        JSONObject jsonBody = new JSONObject(postMessage);
 
-                JSONObject jsonBody = new JSONObject(postMessage);
+        JsonObjectRequest jsObjRequest = new JsonObjectRequest
+                (url, jsonBody, new Response.Listener<JSONObject>() {
 
-                JsonObjectRequest jsObjRequest = new JsonObjectRequest
-                        (url, jsonBody, new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        String base64code = null;
+                        try {
+                            base64code = response.getString("QR");
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                        Log.d("HomeScreenActivity.java", base64code);
+                        byte[] decodedString = Base64.decode(base64code, Base64.NO_PADDING);
+                        Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
+                        ivQRCode.setImageBitmap(decodedByte);
+                    }
+                }, new Response.ErrorListener() {
 
-                            @Override
-                            public void onResponse(JSONObject response) {
-                                String base64code = null;
-                                try {
-                                    base64code = response.getString("QR");
-                                } catch (JSONException e) {
-                                    e.printStackTrace();
-                                }
-                                Log.d("HomeScreenActivity.java", base64code);
-                                                    byte[] decodedString = Base64.decode(base64code, Base64.NO_PADDING);
-                                Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
-                                ivQRCode.setImageBitmap(decodedByte);
-                            }
-                        }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        // TODO Auto-generated method stub
 
-                            @Override
-                            public void onErrorResponse(VolleyError error) {
-                                // TODO Auto-generated method stub
+                    }
+                });
+        queue.add(jsObjRequest);
 
-                            }
-                        });
-                queue.add(jsObjRequest);
-            }
-        });
 
         bHome.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -145,9 +138,3 @@ public class CodeActivity extends AppCompatActivity {
         });
     }
 }
-//JSONObject data = new JSONObject(EntityUtils.toString(response.getEntity()));
-//String base64code = data.getString("QR");
-//                    Log.d("HomeScreenActivity.java", base64code);
-//                    byte[] decodedString = Base64.decode(base64code, Base64.NO_PADDING);
-//Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
-//ivQRCode.setImageBitmap(decodedByte);
