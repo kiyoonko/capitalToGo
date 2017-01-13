@@ -21,7 +21,7 @@
     <TextView
         android:layout_width="316dp"
         android:layout_height="96dp"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="50dp"
         android:layout_centerHorizontal="true"
         android:gravity="center_horizontal"
         android:text="Thank you for using Capital2Go!"
@@ -37,31 +37,21 @@
         android:layout_centerHorizontal="true"
         android:gravity="center_horizontal"
         android:textSize="30dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="63dp"
 
-        android:text="Please come again"
+        android:text="Your transaction has been completed."
 
         android:textColor="@color/white"
 
 
         android:id="@+id/account"/>
-    
-    <TextView
-        android:layout_width="311dp"
-        android:layout_height="96dp"
-        android:layout_below="@id/account"
-        android:layout_centerHorizontal="true"
-        android:gravity="center_horizontal"
-        android:id="@+id/balance"
-        android:textColor="@color/white"
-        android:textSize="70dp"
-        />
+
     
     <ImageButton
         android:layout_width="226dp"
         android:layout_height="68dp"
-        android:layout_marginTop="31dp"
-        android:layout_below="@id/balance"
+        android:layout_marginTop="80dp"
+        android:layout_below="@id/account"
         android:layout_centerHorizontal="true"
         android:background="@null"
         android:gravity="center_horizontal"
