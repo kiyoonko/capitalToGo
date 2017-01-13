@@ -65,8 +65,10 @@ public class HomeScreenActivity extends AppCompatActivity {
         emergencyNum.setTypeface(custom_font_medium);
         emergencyAmt.setTypeface(custom_font_medium);
 
+        final HashMap<String, String> accountNumbers = new HashMap<>();
+
         RequestQueue queue = Volley.newRequestQueue(HomeScreenActivity.this);
-        String url = "http://api.reimaginebanking.com/customers/58788eb81756fc834d8eb492/accounts?key=[SECRET]";
+        String url = "http://api.reimaginebanking.com/customers/58788eb81756fc834d8eb492/accounts?key=80ad40cebb5f5f11cf1cc45d39a1eb1e";
 
         JsonArrayRequest jsObjRequest = new JsonArrayRequest
                 (Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
@@ -86,6 +88,7 @@ public class HomeScreenActivity extends AppCompatActivity {
                             checkingAcctName = response.getJSONObject(0).getString("nickname");
                             checkingAcctAmt = response.getJSONObject(0).getString("balance");
                             checkingAcctNum = response.getJSONObject(0).getString("account_number");
+                            accountNumbers.put("checking", checkingAcctNum);
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -93,6 +96,7 @@ public class HomeScreenActivity extends AppCompatActivity {
                             savingsAcctName = response.getJSONObject(1).getString("nickname");
                             savingsAcctAmt = response.getJSONObject(1).getString("balance");
                             savingsAcctNum = response.getJSONObject(1).getString("account_number");
+                            accountNumbers.put("savings", savingsAcctNum);
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -100,21 +104,22 @@ public class HomeScreenActivity extends AppCompatActivity {
                             emergencyAcctName = response.getJSONObject(2).getString("nickname");
                             emergencyAcctAmt = response.getJSONObject(2).getString("balance");
                             emergencyAcctNum = response.getJSONObject(2).getString("account_number");
+                            accountNumbers.put("emergency", emergencyAcctNum);
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
                         Log.d("HomeScreenActivity", response.toString());
-                        checkingAmt.setText(checkingAcctAmt);
+                        checkingAmt.setText("$" + checkingAcctAmt + ".00");
                         checkingName.setText(checkingAcctName);
-                        checkingNum.setText(checkingAcctNum);
+                        checkingNum.setText(checkingAcctNum.substring(0, 4) + "********" + checkingAcctNum.substring(12, 16));
 
-                        savingsAmt.setText(savingsAcctAmt);
+                        savingsAmt.setText("$" + savingsAcctAmt + ".00");
                         savingsName.setText(savingsAcctName);
-                        savingsNum.setText(savingsAcctNum);
+                        savingsNum.setText(savingsAcctNum.substring(0, 4) + "********" + savingsAcctNum.substring(12, 16));
 
-                        emergencyAmt.setText(emergencyAcctAmt);
+                        emergencyAmt.setText(emergencyAcctNum.substring(0, 4) + "********" + emergencyAcctNum.substring(12, 16));
                         emergencyName.setText(emergencyAcctName);
-                        emergencyNum.setText(emergencyAcctNum);
+                        emergencyNum.setText("$" + emergencyAcctAmt + ".00");
                     }
                 }, new Response.ErrorListener() {
 
@@ -133,6 +138,7 @@ public class HomeScreenActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent choseBank = new Intent(HomeScreenActivity.this, RequestCashActivity.class);
+                choseBank.putExtra("aid", accountNumbers.get("checking"));
                 HomeScreenActivity.this.startActivity(choseBank);
             }
         });
@@ -141,6 +147,7 @@ public class HomeScreenActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent choseBank = new Intent(HomeScreenActivity.this, RequestCashActivity.class);
+                choseBank.putExtra("aid", accountNumbers.get("savings"));
                 HomeScreenActivity.this.startActivity(choseBank);
             }
         });
@@ -149,6 +156,7 @@ public class HomeScreenActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent choseBank = new Intent(HomeScreenActivity.this, RequestCashActivity.class);
+                choseBank.putExtra("aid", accountNumbers.get("emergency"));
                 HomeScreenActivity.this.startActivity(choseBank);
             }
         });
