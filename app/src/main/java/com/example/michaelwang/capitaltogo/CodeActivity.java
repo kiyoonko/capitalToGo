@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.v4.app.ActivityCompat;
@@ -14,6 +15,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -74,7 +76,6 @@ public class CodeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         Bundle extras = getIntent().getExtras();
         final String amount = extras.getString("amount");
-
         verifyStoragePermissions(this);
 
         // LOL
@@ -91,7 +92,9 @@ public class CodeActivity extends AppCompatActivity {
         //final TextView tvHomeScreen = (TextView) findViewById(R.id.tvHomeScreen);
         final ImageView ivQRCode = (ImageView) findViewById(R.id.ivQRCode);
         Button bGetCode = (Button) findViewById(R.id.bGetCode);
-        Button bHome = (Button) findViewById(R.id.bHome);
+        Button cancel = (Button) findViewById(R.id.bCancel);
+        TextView ATM = (TextView) findViewById(R.id.ATM);
+        TextView moneyText = (TextView) findViewById(R.id.moneyText);
 
         bGetCode.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -136,13 +139,19 @@ public class CodeActivity extends AppCompatActivity {
             }
         });
 
-        bHome.setOnClickListener(new View.OnClickListener(){
+        cancel.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
                 Intent homeScreenIntent = new Intent(CodeActivity.this, HomeScreenActivity.class);
                 CodeActivity.this.startActivity(homeScreenIntent);
             }
         });
+
+        final Typeface custom_font_medium = Typeface.createFromAsset(getAssets(),  "fonts/Avenir-Medium.ttf");
+        final Typeface custom_font_bold = Typeface.createFromAsset(getAssets(),  "fonts/AvenirNextCondensed-DemiBold.ttf");
+        cancel.setTypeface(custom_font_bold);
+        ATM.setTypeface(custom_font_medium);
+        moneyText.setTypeface(custom_font_medium);
     }
 }
 //JSONObject data = new JSONObject(EntityUtils.toString(response.getEntity()));

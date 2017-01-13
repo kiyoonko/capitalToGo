@@ -1,32 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/activity_login"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+    android:fitsSystemWindows="true"
+    android:background="@drawable/fadeback"
     tools:context="com.example.michaelwang.capitaltogo.LoginActivity">
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textEmailAddress"
-        android:ems="10"
-        android:layout_alignParentTop="true"
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
         android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/appbar"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+    
+    <TextView
+        android:layout_width="157dp"
+        android:layout_height="48dp"
+        android:textSize="35dp"
+        android:text="Welcome!"
+        android:layout_marginTop="66dp"
+        android:layout_below="@id/my_toolbar"
+        android:id="@+id/welcome"
+        android:gravity="center_horizontal"
+        android:textColor="@color/black"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:layout_width="288dp"
+        android:layout_height="68dp"
+        android:textSize="25dp"
+        android:text="Place your finger\non your fingerprint sensor"
+        android:layout_marginTop="13dp"
+        android:layout_below="@id/welcome"
+        android:id="@+id/block"
+        android:gravity="center_horizontal"
+        android:textColor="@color/black"
+        android:layout_centerHorizontal="true"/>
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="33dp"
+        android:layout_centerHorizontal="true"
+        android:background="@color/white"
+        android:inputType="textEmailAddress"
+        android:textColorHint="@color/grey"
+        android:shadowColor="@color/grey"
+        android:shadowDy="1"
+        android:shadowRadius="2"
+        android:textColor="@color/black"
+        android:layout_below="@id/block"
         android:id="@+id/etEmail"
         android:hint="Email" />
 
     <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="12dp"
+        android:layout_centerHorizontal="true"
+        android:background="@color/white"
+        android:textColorHint="@color/grey"
+        android:shadowColor="@color/grey"
+        android:shadowDy="1"
+        android:shadowRadius="2"
+        android:textColor="@color/black"
         android:inputType="textPassword"
-        android:ems="10"
         android:layout_below="@+id/etEmail"
-        android:layout_alignEnd="@+id/etEmail"
         android:id="@+id/etPassword"
         android:hint="Password" />
 
@@ -36,6 +84,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/etPassword"
         android:gravity="center_horizontal"
+        android:layout_centerHorizontal="true"
         android:id="@+id/bLogin" />
 
     <Button
