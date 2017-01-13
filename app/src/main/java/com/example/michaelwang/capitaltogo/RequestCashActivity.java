@@ -67,9 +67,9 @@ public class RequestCashActivity extends AppCompatActivity {
         bSubmit.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent loginIntent = new Intent(RequestCashActivity.this, CodeActivity.class);
-
-                RequestCashActivity.this.startActivity(loginIntent);
+                Intent submitIntent = new Intent(RequestCashActivity.this, CodeActivity.class);
+                submitIntent.putExtra("amount", etAmount.getText().toString());
+                RequestCashActivity.this.startActivity(submitIntent);
             }
         });
     }

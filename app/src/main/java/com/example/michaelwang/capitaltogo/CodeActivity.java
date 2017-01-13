@@ -1,6 +1,7 @@
 package com.example.michaelwang.capitaltogo;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -13,14 +14,20 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
+import com.android.volley.Request;
 import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.ByteArrayEntity;
 import org.apache.http.entity.mime.MultipartEntityBuilder;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
@@ -30,6 +37,8 @@ import org.json.JSONObject;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.util.HashMap;
 
 public class CodeActivity extends AppCompatActivity {
 
@@ -63,6 +72,9 @@ public class CodeActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Bundle extras = getIntent().getExtras();
+        final String amount = extras.getString("amount");
+
         verifyStoragePermissions(this);
 
         // LOL
@@ -79,40 +91,63 @@ public class CodeActivity extends AppCompatActivity {
         //final TextView tvHomeScreen = (TextView) findViewById(R.id.tvHomeScreen);
         final ImageView ivQRCode = (ImageView) findViewById(R.id.ivQRCode);
         Button bGetCode = (Button) findViewById(R.id.bGetCode);
+        Button bHome = (Button) findViewById(R.id.bHome);
 
         bGetCode.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
+                Bundle extras = getIntent().getExtras();
+
                 // Instantiate the RequestQueue.
                 RequestQueue queue = Volley.newRequestQueue(CodeActivity.this);
                 String url = "http://c2go-api-dev.us-east-1.elasticbeanstalk.com/api/qr";
 
+                HashMap<String, String> postMessage = new HashMap<String, String>();
+                postMessage.put("aid", "5877db6c1756fc834d8e9346");
+                postMessage.put("amount", amount);
 
-                //.addBinaryBody("recording", new File("sdcard/Download/test1.wav"))
+                JSONObject jsonBody = new JSONObject(postMessage);
 
-                // i'll fix the Flask API later so I can just do addTextBody(key, value)
-                HttpEntity entity = MultipartEntityBuilder.create()
-                        .addTextBody("uid", "5877db6c1756fc834d8e9346")
-                        .addTextBody("amount", "45") // 45 needs to be passed from the recording screen
-                        .build();
+                JsonObjectRequest jsObjRequest = new JsonObjectRequest
+                        (url, jsonBody, new Response.Listener<JSONObject>() {
 
-                HttpPost request = new HttpPost(url);
-                request.setEntity(entity);
+                            @Override
+                            public void onResponse(JSONObject response) {
+                                String base64code = null;
+                                try {
+                                    base64code = response.getString("QR");
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+                                Log.d("HomeScreenActivity.java", base64code);
+                                                    byte[] decodedString = Base64.decode(base64code, Base64.NO_PADDING);
+                                Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
+                                ivQRCode.setImageBitmap(decodedByte);
+                            }
+                        }, new Response.ErrorListener() {
 
-                HttpClient client = new DefaultHttpClient();
-                try {
-                    HttpResponse response = client.execute(request);
-                    JSONObject data = new JSONObject(EntityUtils.toString(response.getEntity()));
-                    String base64code = data.getString("QR");
-                    Log.d("HomeScreenActivity.java", base64code);
-                    //Log.d("HomeScreenActivity.java", EntityUtils.toString(response.getEntity()));
-                    byte[] decodedString = Base64.decode(base64code, Base64.NO_PADDING);
-                    Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
-                    ivQRCode.setImageBitmap(decodedByte);
-                } catch (IOException|JSONException e) {
-                    e.printStackTrace();
-                }
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+                                // TODO Auto-generated method stub
+
+                            }
+                        });
+                queue.add(jsObjRequest);
+            }
+        });
+
+        bHome.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent homeScreenIntent = new Intent(CodeActivity.this, HomeScreenActivity.class);
+                CodeActivity.this.startActivity(homeScreenIntent);
             }
         });
     }
 }
+//JSONObject data = new JSONObject(EntityUtils.toString(response.getEntity()));
+//String base64code = data.getString("QR");
+//                    Log.d("HomeScreenActivity.java", base64code);
+//                    byte[] decodedString = Base64.decode(base64code, Base64.NO_PADDING);
+//Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
+//ivQRCode.setImageBitmap(decodedByte);
