@@ -56,7 +56,7 @@
         android:elevation="10dp"
         android:layout_alignParentBottom="true"
         android:background="@color/cancel"
-        android:text="cancel"
+        android:text="done"
         android:textSize="26dp"
         android:textColor="@color/white"
         android:id = "@+id/bCancel"
