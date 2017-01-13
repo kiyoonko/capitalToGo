@@ -66,7 +66,7 @@ public class HomeScreenActivity extends AppCompatActivity {
         emergencyAmt.setTypeface(custom_font_medium);
 
         RequestQueue queue = Volley.newRequestQueue(HomeScreenActivity.this);
-        String url = "http://api.reimaginebanking.com/customers/58788eb81756fc834d8eb492/accounts?key=[SECRET]";
+        String url = "http://api.reimaginebanking.com/customers/58788eb81756fc834d8eb492/accounts?key=80ad40cebb5f5f11cf1cc45d39a1eb1e";
 
         JsonArrayRequest jsObjRequest = new JsonArrayRequest
                 (Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
